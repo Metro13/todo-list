@@ -1,2 +1,12 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+
+<svelte:head>
+    <title>My Todos</title>
+</svelte:head>
+<script>
+    
+</script>
+
+<h1>Create Todos</h1>
+<p>Create and keep track of your Todos easily.</p>
+
+
