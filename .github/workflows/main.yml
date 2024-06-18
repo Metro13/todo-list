@@ -19,10 +19,10 @@ jobs:
         node-version: 20.x
 
      - name: Install Dependencies
-       env:
-           BASE_PATH: '/${{ github.event.repository.name }}'
        run: | 
          npm install
+       env: 
+        BASE_PATH: '/${{ github.event.repository.name }}'
 
      - name: Build Project
        
