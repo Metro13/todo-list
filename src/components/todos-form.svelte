@@ -34,7 +34,7 @@
 
         <div class="p-4 text-center">
 
-            <input value="+ Add Todo" type="submit" class="bg-purple-600 px-16 py-3 hover:bg-gray-800 rounded-md text-white font-medium">
+            <input value="+ Add Todo" type="submit" class="bg-purple-600 px-16 py-3 hover:bg-gray-800 rounded-lg text-white font-medium">
         </div>
         
         
