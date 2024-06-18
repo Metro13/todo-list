@@ -2,7 +2,8 @@ name: CI/CD for todo-list
 
 on: 
  push:
-   branches: -main
+   branches:
+    - main
 
 jobs:
   # Build Job
