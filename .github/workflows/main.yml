@@ -30,7 +30,7 @@ jobs:
        uses: actions/upload-artifact@v3
        with:
          name: production file
-         path: /build
+         path: 'build/'
 
   # Deploy Job
  deploy: 
@@ -41,13 +41,13 @@ jobs:
      uses: actions/download-artifact@v3
      with:
        name: Production File
-       path: /build
+       path: 'build/'
 
    - name: Deploy to GitHub Pages
      uses: peaceiris/actions-gh-pages@v3
      with: 
         github_token: ${{secrets.MYGITHUB_SECRETS}}
-        publish_dir: /build
+        publish_dir: 'build/'
     
          
      
