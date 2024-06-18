@@ -19,6 +19,8 @@ jobs:
         node-version: 20.x
 
      - name: Install Dependencies
+       env:
+           BASE_PATH: '/${{ github.event.repository.name }}'
        run: | 
          npm install
 
@@ -29,13 +31,6 @@ jobs:
        with:
          name: Production-artifact
          path: 'build/'
-         
-     - name: Set Environment Variables
-       env:
-         BASE_PATH: '/${{ github.event.repository.name }}'
-         
-       run: |
-         npm run build
 
   # Deploy Job
  deploy: 
@@ -56,6 +51,4 @@ jobs:
         publish_dir: 'build/'
      
     
-         
-     
- 
+       
