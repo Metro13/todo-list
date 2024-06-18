@@ -2,6 +2,8 @@
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
+[![CI/CD for todo-list](https://github.com/Metro13/todo-list/actions/workflows/main.yml/badge.svg)](https://github.com/Metro13/todo-list/actions/workflows/main.yml)
+
 ## Creating a project
 
 If you're seeing this, you've probably already done this step. Congrats!
