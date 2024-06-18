@@ -1,0 +1,55 @@
+name: CI/CD for todo-list
+
+on: 
+ push:
+   branches: -main
+
+jobs:
+  # Build Job
+ build:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout Code
+       uses: actions/checkout@v3
+     
+     - name: Install Node JS
+       uses: actions/setup-node@v3
+       with:
+        node-version: 18.x
+
+     - name: Install Dependencies
+       run: | 
+         cd todo-list
+         npm install
+
+     - name: Build Project
+       run: |
+         cd todo-list
+         npm run build
+
+     - name: Upload Artifact to enable deployment
+       uses: actions/upload-artifacts@v3
+       with:
+         name: production file
+         path: ./todo-list/build
+
+  # Deploy Job
+ deploy: 
+   needs: build
+   runs-on: ubuntu-latest
+   steps:
+   - name: Download Artifact
+     uses: actions/download-artifact@v3
+     with:
+       name: Production File
+       path: ./todo-list/build
+
+   - name: Deploy to GitHub Pages
+     uses: peaceiris/actions-gh-pages@v3
+     with: 
+        github_token: ${{secrets.MYGITHUB_SECRETS}}
+        publish_dir: ./todo-list/build
+    
+         
+     
+ 
