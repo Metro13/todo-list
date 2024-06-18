@@ -20,19 +20,17 @@ jobs:
 
      - name: Install Dependencies
        run: | 
-         cd todo-list
          npm install
 
      - name: Build Project
        run: |
-         cd todo-list
          npm run build
 
      - name: Upload Artifact to enable deployment
        uses: actions/upload-artifact@v3
        with:
          name: production file
-         path: ./todo-list/build
+         path: ./build
 
   # Deploy Job
  deploy: 
@@ -43,13 +41,13 @@ jobs:
      uses: actions/download-artifact@v3
      with:
        name: Production File
-       path: ./todo-list/build
+       path: ./build
 
    - name: Deploy to GitHub Pages
      uses: peaceiris/actions-gh-pages@v3
      with: 
         github_token: ${{secrets.MYGITHUB_SECRETS}}
-        publish_dir: ./todo-list/build
+        publish_dir: ./build
     
          
      
