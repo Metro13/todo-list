@@ -2,7 +2,7 @@ name: CI/CD for todo-list
 
 on: 
  push:
-   branches: -main
+   branches: -feat-adding-Tailwindcss
 
 jobs:
   # Build Job
