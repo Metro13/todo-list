@@ -23,31 +23,41 @@ jobs:
          npm install
 
      - name: Build Project
-       run: |
-         npm run build
-
+       
      - name: Upload Artifact to enable deployment
        uses: actions/upload-artifact@v3
        with:
          name: Production-artifact
          path: 'build/'
+         
+     - name: Set Environment Variables
+       env:
+         BASE_PATH: '/${{ github.event.repository.name }}'
+         
+       run: |
+         npm run build
 
   # Deploy Job
  deploy: 
    needs: build
    runs-on: ubuntu-latest
+   environment: 
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
    steps:
    - name: Download Artifact
      uses: actions/download-artifact@v3
      with:
        name: Production-artifact
        path: 'build/'
-
+       
    - name: Deploy to GitHub Pages
-     uses: peaceiris/actions-gh-pages@v3
+     uses: actions/deploy-pages@v4
+     
      with: 
         github_token: ${{secrets.MYGITHUB_SECRETS}}
         publish_dir: 'build/'
+     
     
          
      
