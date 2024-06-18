@@ -20,7 +20,7 @@
     <form method="post" on:submit|preventDefault={createTodos} class="grid">
         <div class="grid p-4">
             <label class="text-lg font-medium" for="TodoName">
-                Name
+                Todo Name
             </label>
             <input required bind:value={todoName} class=" w-96 p-2 border active:border-purple-700 rounded h-12" type="text" name="TodoName" id="TodoName" placeholder="Todo Name">
         </div>
