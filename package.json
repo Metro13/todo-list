@@ -15,7 +15,6 @@
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "next",
-		"@sveltejs/adapter-node": "^5.2.0",
 		"@sveltejs/kit": "next",
 		"autoprefixer": "^10.4.13",
 		"eslint": "^8.28.0",
