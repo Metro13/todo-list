@@ -35,6 +35,22 @@ jobs:
          name: Production-artifact
          path: 'build/'
 
+     # Code vulnerability scanning
+
+     - name: Code Scanning
+       uses: actions/checkout@v4
+
+     - name: Initialize CodeQL
+       uses: github/codeql-action/init@v3
+       with:
+        languages: javascript
+  
+     - name: Autobuild Core CodeQL
+       uses: github/codeql-action/autobuild@v3
+           
+     - name: Perform CodeQL Analysis
+       uses: github/codeql-action/analyze@v3
+
   # Deploy Job
  deploy: 
    needs: build
